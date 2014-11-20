@@ -14,7 +14,7 @@ At the moment, the project is a little lame. It exsists only as a shell script
 and currently doesn't do notifications beyond the command line. That being said,
 To use it in it's current state, do the following:
 
-1. Download *IPSync.sh* to your computer
+1. Download using *git clone https://github.com/iantbaldwin/IPSync.git*
 2. Assuming that you're using linux, type *chmod +x IPSync.sh*
 3. Excute the script by typing *./IPSync.sh*
 
