@@ -4,7 +4,7 @@
 ## IPSync V1.0 - 11/18/2014
 
 # IPSync -  A program that checks to see if your public IP Adress has changed
-# And notifies you if it has (via Pushover)!
+# And notifies you if it has!
 
 ## Constants
 DATABASE=IPSync.db
@@ -16,9 +16,15 @@ if [ ! -s $NAMEFILE ]; then
 fi
 DEVICENAME=$(cut -d' ' -f1 $NAMEFILE)
 DELIMITER=":"
+IPMETHOD=curl;
 
 # Checks IP Adress with external resource, icanhazip.com
-curIP=$(wget -O - -q icanhazip.com)
+if [ "$IPMETHOD" == "curl" ]; then
+	curIP=$(curl -s icanhazip.com)
+else 
+	curIP=$(wget -O - -q icanhazip.com)
+fi
+
 
 # Checks to see if the IP database file exists
 # Creates it if it does not
@@ -45,7 +51,7 @@ unset curLine
 # Checks if device is one of the ones listed in the file and
 # records the device number if it does, else it creates
 # the listing in the database file
-deviceNumber=-1
+deviceNumber=0
 i=0
 if [[ " ${lineArray[*]} " != *" $DEVICENAME "* ]]; then
 	deviceList[$((devCount))]=$DEVICENAME
