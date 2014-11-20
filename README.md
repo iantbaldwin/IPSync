@@ -13,9 +13,11 @@ Usage of IPSync
 At the moment, the project is a little lame. It exsists only as a shell script
 and currently doesn't do notifications beyond the command line. That being said,
 To use it in it's current state, do the following:
+
 1. Download *IPSync.sh* to your computer
 2. Assuming that you're using linux, type *chmod +x IPSync.sh*
 3. Excute the script by typing *./IPSync.sh*
+
 The script requires two files, a devicename file (*device.name*), and an IP
 address database (*IPSync.db*). Removal of any of these files will result in 
 IPSync recreating them. When you run the program for the first time, it will 
